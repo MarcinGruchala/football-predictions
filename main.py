@@ -1,1 +1,1 @@
-print('Football is awesome!')
+import data
