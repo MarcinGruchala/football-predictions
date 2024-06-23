@@ -2,10 +2,10 @@
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
-from data import premier_league as pl
-import data.tools.encoding as enc
-import data.tools.rolling_averages as rolling
-import build_features as bf
+from football_predictions.data import premier_league as pl
+import football_predictions.data.tools.encoding as enc
+import football_predictions.data.tools.rolling_averages as rolling
+import football_predictions.build_features as bf
 
 premier_league_df = pl.download_premier_league_base_data()
 
