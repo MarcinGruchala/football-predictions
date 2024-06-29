@@ -9,6 +9,8 @@ DESTINATION_FOLDER = 'data/raw/premier_league'
 if not os.path.exists(DESTINATION_FOLDER):
     os.makedirs(DESTINATION_FOLDER)
 
+print('*** Downloading Premier League data ***')
+
 files = []
 
 for season in pl.SEASONS:
@@ -29,3 +31,6 @@ for season in pl.SEASONS:
 # Create a combined data frame and save it as a CSV
 combined = pd.concat(files)
 combined.to_csv(f'{DESTINATION_FOLDER}/premier_league_combined.csv', index=False)
+
+print('Successfully combined premier league seasons into premier_league_combined.csv')
+print('*** Downloading Premier League data complete ***')

@@ -12,5 +12,5 @@ def convert_date(date_str):
     '''
     if len(date_str.split('/')[-1]) == 2:
         return pd.to_datetime(date_str, format='%d/%m/%y').strftime('%d/%m/%Y')
-    else:
-        return pd.to_datetime(date_str, format='%d/%m/%Y').strftime('%d/%m/%Y')
+
+    return pd.to_datetime(date_str, format='%d/%m/%Y').strftime('%d/%m/%Y')
