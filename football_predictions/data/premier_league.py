@@ -2,6 +2,8 @@
 
 import pandas as pd
 
+SEASONS = ['2324', '2223', '2122', '2021', '1920', '1819', '1718', '1617']
+
 def download_premier_league_base_data():
     """
     Downloads and combines Premier League season data from multiple seasons.

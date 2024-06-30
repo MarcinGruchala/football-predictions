@@ -1,0 +1,33 @@
+0: Arsenal
+1: Aston Villa
+2: Bournemouth
+3: Brentford
+4: Brighton
+5: Burnley
+6: Cardiff
+7: Chelsea
+8: Crystal Palace
+9: Everton
+10: Fulham
+11: Huddersfield
+12: Hull
+13: Leeds
+14: Leicester
+15: Liverpool
+16: Luton
+17: Man City
+18: Man United
+19: Middlesbrough
+20: Newcastle
+21: Norwich
+22: Nott'm Forest
+23: Sheffield United
+24: Southampton
+25: Stoke
+26: Sunderland
+27: Swansea
+28: Tottenham
+29: Watford
+30: West Brom
+31: West Ham
+32: Wolves

@@ -1,0 +1,20 @@
+0: Arsenal
+1: Bournemouth
+2: Brighton
+3: Burnley
+4: Cardiff
+5: Chelsea
+6: Crystal Palace
+7: Everton
+8: Fulham
+9: Huddersfield
+10: Leicester
+11: Liverpool
+12: Man City
+13: Man United
+14: Newcastle
+15: Southampton
+16: Tottenham
+17: Watford
+18: West Ham
+19: Wolves
