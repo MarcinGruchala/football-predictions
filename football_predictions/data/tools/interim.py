@@ -51,18 +51,26 @@ def create_interim_data_for_league(league):
 def prepare_interim_data_frame(df):
     '''
     Encodes the raw data and saves it as a CSV in the interim data folder.
-    
     '''
     # Convert the date column to pandas datetime
     df['Date'] = df['Date'].apply(convert_date)
 
     # Encode team names
-    home_encoded, away_encoded, teams_dict = encode_team_names(df['HomeTeam'], df['AwayTeam'],True)
-    df['HomeTeamCode'] = home_encoded
-    df['AwayTeamCode'] = away_encoded
+    home_encoded, away_encoded, teams_dict = encode_team_names(df['HomeTeam'], df['AwayTeam'], True)
 
     # Encode the match results
-    df['FTR_code'] = df['FTR'].apply(encode_result)
-    df['HTR_code'] = df['HTR'].apply(encode_result)
+    ftr_encoded = df['FTR'].apply(encode_result)
+    htr_encoded = df['HTR'].apply(encode_result)
+
+    # Create a new DataFrame with the new columns
+    new_columns = pd.DataFrame({
+        'HomeTeamCode': home_encoded,
+        'AwayTeamCode': away_encoded,
+        'FTR_code': ftr_encoded,
+        'HTR_code': htr_encoded
+    })
+
+    # Concatenate the original DataFrame with the new columns
+    df = pd.concat([df, new_columns], axis=1)
 
     return df, teams_dict
