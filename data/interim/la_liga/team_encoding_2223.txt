@@ -1,0 +1,20 @@
+0: Almeria
+1: Ath Bilbao
+2: Ath Madrid
+3: Barcelona
+4: Betis
+5: Cadiz
+6: Celta
+7: Elche
+8: Espanol
+9: Getafe
+10: Girona
+11: Mallorca
+12: Osasuna
+13: Real Madrid
+14: Sevilla
+15: Sociedad
+16: Valencia
+17: Valladolid
+18: Vallecano
+19: Villarreal
