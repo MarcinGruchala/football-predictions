@@ -4,10 +4,8 @@ Encodes the data and saves it as a CSV in data/interim/premier_league.
 '''
 import os
 import pandas as pd
-from tools.convert_date import convert_date
-from tools.encoding import encode_team_names
-from tools.encoding import encode_result
-import premier_league as pl
+from ..configuration import SEASONS
+from ..tools.encoding import encode_team_names, encode_result, convert_date
 
 INPUT_FOLDER = 'data/raw/premier_league'
 OUTPUT_DESTINATION_FOLDER = 'data/interim/premier_league'
@@ -42,7 +40,7 @@ print('*** Encoding Premier League data ***')
 if not os.path.exists(OUTPUT_DESTINATION_FOLDER):
     os.makedirs(OUTPUT_DESTINATION_FOLDER)
 
-for season in pl.SEASONS:
+for season in SEASONS:
     # Read the data for the season
     data = pd.read_csv(f'{INPUT_FOLDER}/premier_league_{season}.csv')
 

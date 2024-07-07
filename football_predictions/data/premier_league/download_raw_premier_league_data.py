@@ -1,7 +1,8 @@
 '''Download raw data for Premier League'''
 import os
 import pandas as pd
-import premier_league as pl
+from ..configuration import SEASONS
+from .tools import download_premier_league_season_data
 
 DESTINATION_FOLDER = 'data/raw/premier_league'
 
@@ -13,10 +14,10 @@ print('*** Downloading Premier League data ***')
 
 files = []
 
-for season in pl.SEASONS:
+for season in SEASONS:
     try:
         # Download the season data
-        file = pl.download_premier_league_season_data(season)
+        file = download_premier_league_season_data(season)
         # Verify that file is a DataFrame
         if isinstance(file, pd.DataFrame):
             # Save the file as a CSV

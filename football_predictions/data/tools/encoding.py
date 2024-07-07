@@ -4,6 +4,16 @@ from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 pd.options.mode.copy_on_write = True
 
+def convert_date(date_str):
+    '''
+    Convert a date string to a datetime object and then back to a string
+    with the format 'dd/mm/yyyy
+    '''
+    if len(date_str.split('/')[-1]) == 2:
+        return pd.to_datetime(date_str, format='%d/%m/%y').strftime('%d/%m/%Y')
+
+    return pd.to_datetime(date_str, format='%d/%m/%Y').strftime('%d/%m/%Y')
+
 def encode_team_names(home_team, away_team, generate_dictionary=False):
     """
     Encode the given home_team and away_team columns.
