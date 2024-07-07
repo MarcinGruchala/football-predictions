@@ -1,0 +1,20 @@
+0: Alaves
+1: Ath Bilbao
+2: Ath Madrid
+3: Barcelona
+4: Betis
+5: Celta
+6: Eibar
+7: Espanol
+8: Getafe
+9: Girona
+10: Huesca
+11: Leganes
+12: Levante
+13: Real Madrid
+14: Sevilla
+15: Sociedad
+16: Valencia
+17: Valladolid
+18: Vallecano
+19: Villarreal
