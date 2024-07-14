@@ -17,7 +17,6 @@ def rolling_averages(group, cols, new_cols, window_size):
     group = group.sort_values("Date")
     rolling_stats = group[cols].rolling(window=window_size, closed='left').mean()
     group[new_cols] = rolling_stats
-    group = group.dropna(subset=new_cols)
     return group
 
 
@@ -43,5 +42,5 @@ def rolling_averages_for_window_sizes(group, cols, sizes,team):
                                     window_size)
         group = group.merge(rolling_df[new_rolling_columns],
                           left_index=True, right_index=True, how='left')
-        group = group.dropna(subset=new_rolling_columns)
+    group = group.dropna(subset=new_rolling_columns)
     return group

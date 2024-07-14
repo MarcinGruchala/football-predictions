@@ -21,15 +21,19 @@ def create_processed_data_for_league(league):
     for season in SEASONS:
         # Read the data for the season
         data = pd.read_csv(f'{input_folder}/{league}_{season}.csv')
+        data['Date'] = pd.to_datetime(data['Date'], dayfirst = True)
         data = calculate_rolling_averages_home_team(data)
-        # data = calculate_rolling_averages_away_team(data)
+        data = calculate_rolling_averages_away_team(data)
+        data = data.sort_values('Date')
 
         # Save the data as a CSV
         data.to_csv(f'{output_folder}/{league}_{season}.csv', index=False)
         print(f'Successfully processed and saved {league}_{season}.csv')
     interim_combined_data = pd.read_csv(f'{input_folder}/{league}_combined.csv')
+    interim_combined_data['Date'] = pd.to_datetime(interim_combined_data['Date'], dayfirst = True)
     interim_combined_data = calculate_rolling_averages_home_team(interim_combined_data)
     interim_combined_data = calculate_rolling_averages_away_team(interim_combined_data)
+    interim_combined_data = interim_combined_data.sort_values('Date')
     interim_combined_data.to_csv(f'{output_folder}/{league}_combined.csv', index=False)
     print(f'Successfully processed and saved {league}_combined.csv')
     print(f'*** Completed creating processed data for {league} ***')
