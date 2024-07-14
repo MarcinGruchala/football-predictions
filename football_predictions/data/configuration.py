@@ -7,3 +7,5 @@ ROLLING_AVERAGES_COLUMNS = [
     'HS', 'AS', 'HST', 'AST', 'HC', 'AC',
     'HF', 'AF', 'HY', 'AY', 'HR', 'AR', 'FTR_code', 'HTR_code'
 ]
+
+ROLLING_AVERAGES_WINDOW_SIZES = [2,3,4]

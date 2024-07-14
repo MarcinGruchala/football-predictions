@@ -21,7 +21,7 @@ def rolling_averages(group, cols, new_cols, window_size):
     return group
 
 
-def rolling_averages_for_window_sizes(group, cols, sizes):
+def rolling_averages_for_window_sizes(group, cols, sizes,team):
     """
     Calculate multiple rolling averages for specified columns in a DataFrame,
     for specified window sizes.
@@ -31,13 +31,14 @@ def rolling_averages_for_window_sizes(group, cols, sizes):
     cols (list): List of column names to calculate rolling averages for.
     window_sizes (list): List of numbers of consecutive data points to 
     include in the rolling window.
+    team (string): Label for home or away team
 
     Returns:
     pd.DataFrame: DataFrame with rolling averages appended as new columns,
     with rows containing NaN values in these new columns removed.
     """
     for window_size in sizes:
-        new_rolling_columns = [f'rolling_{col}_w{window_size}' for col in cols]
+        new_rolling_columns = [f'{team}_R_{col}_W_{window_size}' for col in cols]
         rolling_df = rolling_averages(group, cols, new_rolling_columns,
                                     window_size)
         group = group.merge(rolling_df[new_rolling_columns],
