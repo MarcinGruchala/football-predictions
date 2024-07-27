@@ -16,8 +16,10 @@ def download_raw_data_for_league(league, download_function):
     files = []
     for season in SEASONS:
         file = download_function(season)
-        file.to_csv(f'{destination_folder}/{league}_{season}.csv', index=False)
-        files.append(file)
+        file_with_league = file.copy()
+        file_with_league['League'] = league
+        file_with_league.to_csv(f'{destination_folder}/{league}_{season}.csv', index=False)
+        files.append(file_with_league)
         print(f'Successfully downloaded and saved {league}_{season}.csv')
     # Create a combined data frame and save it as a CSV
     combined = pd.concat(files)
