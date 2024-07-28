@@ -2,10 +2,11 @@
 
 import os
 import pandas as pd
-from .configuration import LEAGUES, RAW_DATA_PATH, INTERIM_DATA_PATH, PROCESSED_DATA_PATH
+from .configuration import LEAGUES, RAW_DATA_PATH
 from .tools.raw import download_raw_data_for_league
-from .tools.interim import create_interim_data_for_league
+from .tools.interim import create_interim_data_for_league, create_interim_data_for_combined_leagues
 from .tools.processed import create_processed_data_for_league
+from .tools.processed import create_processed_data_for_combined_leagues
 from .premier_league.tools import download_premier_league_season_data
 from .la_liga.tools import download_la_liga_season_data
 from .serie_a.tools import download_serie_a_season_data
@@ -31,20 +32,17 @@ def main():
     download_raw_data_for_league('serie_a',download_serie_a_season_data)
     download_raw_data_for_league('premier_league',download_premier_league_season_data)
     download_raw_data_for_league('la_liga',download_la_liga_season_data)
+    raw_combined = combine_csv_files(RAW_DATA_PATH)
+    raw_combined.to_csv(f'{RAW_DATA_PATH}/raw_combined.csv', index=False)
 
     for league in LEAGUES:
         create_interim_data_for_league(league)
+    create_interim_data_for_combined_leagues()
 
     for league in LEAGUES:
         create_processed_data_for_league(league)
+    create_processed_data_for_combined_leagues()
 
-    # Combine all *_combined.csv files from interim, processed, and raw folders
-    print('*** Combining all *_combined.csv files ***')
-    folders_to_combine = [RAW_DATA_PATH, INTERIM_DATA_PATH, PROCESSED_DATA_PATH]
-    for folder in folders_to_combine:
-        combined_df = combine_csv_files(folder)
-        combined_df.to_csv(f'{folder}_combined.csv', index=False)
-    print('*** Combining all *_combined.csv files complete ***')
     print('*** Data preparation complete ***')
 
 if __name__ == "__main__":

@@ -1,0 +1,95 @@
+0: Alaves
+1: Almeria
+2: Arsenal
+3: Aston Villa
+4: Atalanta
+5: Ath Bilbao
+6: Ath Madrid
+7: Barcelona
+8: Benevento
+9: Betis
+10: Bologna
+11: Bournemouth
+12: Brentford
+13: Brescia
+14: Brighton
+15: Burnley
+16: Cadiz
+17: Cagliari
+18: Cardiff
+19: Celta
+20: Chelsea
+21: Chievo
+22: Cremonese
+23: Crotone
+24: Crystal Palace
+25: Eibar
+26: Elche
+27: Empoli
+28: Espanol
+29: Everton
+30: Fiorentina
+31: Frosinone
+32: Fulham
+33: Genoa
+34: Getafe
+35: Girona
+36: Granada
+37: Huddersfield
+38: Huesca
+39: Hull
+40: Inter
+41: Juventus
+42: La Coruna
+43: Las Palmas
+44: Lazio
+45: Lecce
+46: Leeds
+47: Leganes
+48: Leicester
+49: Levante
+50: Liverpool
+51: Luton
+52: Malaga
+53: Mallorca
+54: Man City
+55: Man United
+56: Middlesbrough
+57: Milan
+58: Monza
+59: Napoli
+60: Newcastle
+61: Norwich
+62: Nott'm Forest
+63: Osasuna
+64: Palermo
+65: Parma
+66: Pescara
+67: Real Madrid
+68: Roma
+69: Salernitana
+70: Sampdoria
+71: Sassuolo
+72: Sevilla
+73: Sheffield United
+74: Sociedad
+75: Southampton
+76: Sp Gijon
+77: Spal
+78: Spezia
+79: Stoke
+80: Sunderland
+81: Swansea
+82: Torino
+83: Tottenham
+84: Udinese
+85: Valencia
+86: Valladolid
+87: Vallecano
+88: Venezia
+89: Verona
+90: Villarreal
+91: Watford
+92: West Brom
+93: West Ham
+94: Wolves

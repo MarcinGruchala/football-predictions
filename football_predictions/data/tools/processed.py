@@ -38,7 +38,22 @@ def create_processed_data_for_league(league):
     print(f'Successfully processed and saved {league}_combined.csv')
     print(f'*** Completed creating processed data for {league} ***')
 
+def create_processed_data_for_combined_leagues():
+    '''
+    Created processed data for combined leagues.
+    '''
+    print('*** Creating processed data for combined leagues ***')
+    input_folder = 'data/interim'
+    output_folder = 'data/processed'
+    data = pd.read_csv(f'{input_folder}/interim_combined.csv')
+    data['Date'] = pd.to_datetime(data['Date'], dayfirst = True)
+    data = calculate_rolling_averages_home_team(data)
+    data = calculate_rolling_averages_away_team(data)
+    data = data.sort_values('Date')
 
+    # Save the data as a CSV
+    data.to_csv(f'{output_folder}/processed_combined.csv', index=False)
+    print('*** Completed creating processed data for combined leagues ***')
 
 def calculate_rolling_averages_home_team(data_frame):
     """
