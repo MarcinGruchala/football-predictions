@@ -41,4 +41,3 @@ def create_target_from_df(df, target_column='FTR_code'):
         pandas.Series: The target variable as a pandas Series.
     """
     return df[target_column]
-

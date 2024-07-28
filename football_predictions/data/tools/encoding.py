@@ -42,7 +42,7 @@ def encode_team_names(home_team, away_team, generate_dictionary=False):
 
     if generate_dictionary:
         # Create a dictionary mapping team codes to team names
-        team_mapping = {index: label for index, label in enumerate(le.classes_)}
+        team_mapping = dict(enumerate(le.classes_))
         return pd.Series(home_team_code), pd.Series(away_team_code), team_mapping
 
     return pd.Series(home_team_code), pd.Series(away_team_code)
@@ -77,12 +77,12 @@ def encode_result(result):
     """
     if result == 'H':
         return 1
-    elif result == 'D':
+    if result == 'D':
         return 0
-    elif result == 'A':
+    if result == 'A':
         return -1
-    else:
-        return None
+
+    return None
 
 def encode_base_data(df):
     """
