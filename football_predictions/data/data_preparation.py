@@ -37,7 +37,10 @@ for league in LEAGUES:
     create_processed_data_for_league(league)
 
 # Combine all *_combined.csv files from interim, processed, and raw folders
+print('*** Combining all *_combined.csv files ***')
 folders_to_combine = [RAW_DATA_PATH, INTERIM_DATA_PATH, PROCESSED_DATA_PATH]
 for folder in folders_to_combine:
     combined_df = combine_csv_files(folder)
     combined_df.to_csv(f'{folder}_combined.csv', index=False)
+print('*** Combining all *_combined.csv files complete ***')
+print('*** Data preparation complete ***')

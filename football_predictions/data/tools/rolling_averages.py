@@ -1,5 +1,7 @@
 """ Functions to calculate rolling averages for specified columns in a DataFrame. """ 
 
+import pandas as pd
+
 def rolling_averages(group, cols, new_cols, window_size):
     """
     Calculate rolling averages for specified columns in a DataFrame.
@@ -16,8 +18,14 @@ def rolling_averages(group, cols, new_cols, window_size):
     """
     group = group.sort_values("Date")
     rolling_stats = group[cols].rolling(window=window_size, closed='left').mean()
-    group[new_cols] = rolling_stats
-    return group
+    # Use pd.concat to join the original DataFrame with the new rolling_stats DataFrame
+
+    combined = pd.concat(
+        [group.reset_index(drop=True), 
+         rolling_stats.reset_index(drop=True)],
+        axis=1)
+    combined.columns = list(group.columns) + new_cols
+    return combined
 
 
 def rolling_averages_for_window_sizes(group, cols, sizes,team):
