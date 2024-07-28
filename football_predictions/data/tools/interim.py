@@ -3,7 +3,7 @@
 import os
 import pandas as pd
 from .encoding import encode_team_names, encode_result, convert_date
-from ..configuration import SEASONS
+from ..configuration import SEASONS, COLUMNS_TO_KEEP
 
 def create_interim_data_for_league(league):
     '''
@@ -23,6 +23,7 @@ def create_interim_data_for_league(league):
 
         # Encode the data
         data, encoding_dict = prepare_interim_data_frame(data)
+        useful_data = data[COLUMNS_TO_KEEP]
 
         # Save the team encoding
         with open(f'{output_folder}/team_encoding_{season}.txt', 'w', encoding='utf-8') as file:
@@ -30,20 +31,21 @@ def create_interim_data_for_league(league):
                 file.write(f"{team}: {code}\n")
 
         # Save the data as a CSV
-        data.to_csv(f'{output_folder}/{league}_{season}.csv', index=False)
+        useful_data.to_csv(f'{output_folder}/{league}_{season}.csv', index=False)
         print(f'Successfully encoded and saved {league}_{season}.csv')
 
     raw_combined_data = pd.read_csv(f'{input_folder}/{league}_combined.csv')
 
     # Encode the data
-    interim_combined_data, encoding_dict = prepare_interim_data_frame(raw_combined_data)
+    combined_data, encoding_dict = prepare_interim_data_frame(raw_combined_data)
+    useful_combined_data = combined_data[COLUMNS_TO_KEEP]
 
     # Save the team encoding
     with open(f'{output_folder}/team_encoding_combined.txt', 'w', encoding='utf-8') as file:
         for team, code in encoding_dict.items():
             file.write(f"{team}: {code}\n")
     # Save the data as a CSV
-    interim_combined_data.to_csv(f'{output_folder}/{league}_combined.csv', index=False)
+    useful_combined_data.to_csv(f'{output_folder}/{league}_combined.csv', index=False)
     print(f'Successfully encoded and saved {league}_combined.csv')
     print(f'*** Completed creating interim data for {league} ***')
 
