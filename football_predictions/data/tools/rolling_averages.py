@@ -1,7 +1,5 @@
 """ Functions to calculate rolling averages for specified columns in a DataFrame. """ 
 
-import pandas as pd
-
 def rolling_averages(group, cols, new_cols, window_size):
     """
     Calculate rolling averages for specified columns in a DataFrame.
